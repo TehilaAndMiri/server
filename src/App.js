@@ -1,25 +1,18 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import apartmentsArray from './components/apartmentsArray/apartmentsArray';
+//import Login from './components/login/login';
+//import SingUp from './components/signUp/signUp'
+import ApartmentsArray from './components/apartmentsArray/apartmentsArray'
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  
+
+  //return <SingUp />
+    //return <Login />
+          return <ApartmentsArray />
+  }
+
 
 export default App;
