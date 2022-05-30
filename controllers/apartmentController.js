@@ -10,9 +10,6 @@ module.exports.postApartment = async function (req, res, next) {
       res.send(inserted)
     }
     catch (error) {
-
-
-      
       next(error);
     }
 

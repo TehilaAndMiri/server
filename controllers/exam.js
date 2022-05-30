@@ -17,6 +17,10 @@ const getPlaceById = async (req, res, next) => {
   
         500
   
+
+
+
+        
       );
   
       return next(error);
