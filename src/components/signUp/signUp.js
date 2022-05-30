@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './signUp.css';
 import { signUpUser } from '../../API/signUp'; 
+import { useNavigate } from 'react-router-dom';
 
 export default function SingUp() {
     const [firstName, setFirstName] = useState("");
@@ -22,9 +23,14 @@ export default function SingUp() {
         });
         await signUpUser(user)    
     }
+    const navigate=useNavigate();
+    const x = () =>{
+        navigate("/ApartmentsArray")
+    }
 
     return (
         <div className="signUp-wrapper">
+                <h1>הוספת מדריכה</h1><br></br>
             <form onSubmit={handleSubmit}>
                 <label >
                     שם פרטי
@@ -44,13 +50,15 @@ export default function SingUp() {
                 </label>
                 <label>
                     סיסמא
-                    <input onChange={(e) => setPassword(e.target.value)}></input><br></br><br></br>
+                    <input type={"password"} onChange={(e) => setPassword(e.target.value)}></input><br></br><br></br>
                 </label>
                 <label>
                     טלפון
                     <input onChange={(e) => setPhoneNumber(e.target.value)}></input><br></br><br></br>
-                </label>
-               <button type="submit">התחברות</button>
+                </label><br></br>
+               {/* <button onClick={x}>הרשמה</button> */}
+                              <button type="submit">הרשמה</button>
+
             </form>
         </div>
     )
