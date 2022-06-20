@@ -25,6 +25,7 @@ module.exports.getUserByEmailPassword = async function (req, res, next) {
                 memberArr.push(currentMember);
             }
         }
+        
             if (!currentUser){
                 alert("אינך קיימת במערכת");
                 throw 'user not exist';
