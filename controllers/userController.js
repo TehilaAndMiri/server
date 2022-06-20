@@ -9,10 +9,9 @@ const { json } = require('express/lib/response');
 module.exports.getUserByEmailPassword = async function (req, res, next) {
  
     if (req.query) {
-        // if (req.query.email && req.query.password) {
         const email = req.query.email
         const password = req.query.password
-        let member=[];
+        let memberArr=[];
         try {
            let currentUser = await userModel.findOne({email:email, password:password });
            let apartments = await apartmentModel.find({apartmentId:currentUser.apartmentsId});
@@ -20,20 +19,18 @@ module.exports.getUserByEmailPassword = async function (req, res, next) {
 
            console.log(apartments[0].membersId[0]);
          
-           apartments.forEach ((element) => {            
-            element.membersId.forEach(async (e)=> {
-                currentMember=  await memberModel.findOne({Id:e});
-                member.push(currentMember);
-                console.log(member);
-                
-               });
-           });
+        for (const apart of apartments) {
+            for(const member of apart.membersId){
+                currentMember=  await memberModel.findOne({Id:member});
+                memberArr.push(currentMember);
+            }
+        }
             if (!currentUser){
                 alert("אינך קיימת במערכת");
                 throw 'user not exist';
             }
-            JSON.stringify(member);
-            res.send(member); 
+            JSON.stringify(memberArr);
+          res.send(memberArr); 
         }
         catch (error) {
           next(error);
