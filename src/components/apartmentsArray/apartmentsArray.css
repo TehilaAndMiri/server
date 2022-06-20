@@ -1,0 +1,35 @@
+  
+  h1{
+    text-align: center;
+  }
+  table {
+    border: 0.1px solid rgb(0, 0, 0);
+    width: 850px;
+    height: 200px;
+    margin: auto;
+    border:2px solid black;
+    border-collapse: collapse;
+    direction: rtl;
+  }
+    
+  th {
+    border:2px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    width: 200px;
+  }
+    
+  td {  
+    text-align: center;
+    border:2px solid black;
+    border-collapse: collapse;
+  }
+  .addUserB{
+    padding: 10px;
+    margin-top: 15px;
+    margin-left:20%;
+    /* display: none; */
+
+
+  }
+
